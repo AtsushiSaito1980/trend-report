@@ -53,27 +53,40 @@ git push -u origin report-{RUN_ID}
 
 ### 4. 統合
 3つの分析ファイルを読み込み、下記フォーマットで日報ドラフトを作成する。
+**CLAUDE.md のスタイルガイドを必ず適用すること**（絵文字・太字・mermaid・エグゼクティブサマリー形式）。
 
 ```markdown
-# トレンド日報 YYYY-MM-DD
+# 📊 トレンド日報 YYYY-MM-DD
 
-## 本日の選択トピック
-- {A}, {B}, {C}
+## 📋 エグゼクティブ・サマリー
+> **本日の重要トピック**: {A}, {B}, {C}
+> （全体を3〜5行で結論から記述。最も重要な発見を <mark>蛍光ペン</mark> でマーク）
+
+## 🗺️ トピック関係図
+```mermaid
+graph TD
+  A["{トピックA}"] --> B["🚀 技術的影響"]
+  A --> C["🌍 社会的影響"]
+  A --> D["⚠️ リスク"]
+```
 
 ## 🔬 Tech視点
-### {トピックA}
-...
+### 🚀 {トピックA}
+- **注目点**: ...
+- **データ**: ...
 
 ## 🌍 Human視点
-### {トピックA}
-...
+### 💰 {トピックA}
+- **社会的インパクト**: ...
+- **ビジネスチャンス**: ...
 
 ## ⚠️ Critic視点
-### {トピックA}
-...
+### 🔍 {トピックA}
+- **主なリスク**: ...
+- **注意点**: ...
 
-## 💡 総合所感
-（リーダーによる統合コメント、3〜5行）
+## 💡 総合所感・アクション提言
+（リーダーによる統合コメント、3〜5行。具体的な提言を含める）
 ```
 
 ### 5. 品質チェック
@@ -81,10 +94,28 @@ git push -u origin report-{RUN_ID}
 - `[Tester] OK.` → 次へ
 - `[Tester] NG: {理由}` → 指摘箇所を修正して再チェック
 
-### 6. 保存 & commit #2（最終）
+### 6. 保存・index.json更新 & commit #2（最終）
 1. `reports/daily/{YYYY-MM-DD_HHMMSS}/report.md` に保存
-2. `workspace/status.json` を `phase: done` に更新
-3. コミット:
+2. 分析ファイルをレポートフォルダにコピー（**viewer-secret-2026.html のアコーディオン表示に必須**）:
+   ```
+   reports/daily/{YYYY-MM-DD_HHMMSS}/tech_analysis.md   ← workspace/outputs/tech_analysis.md をコピー
+   reports/daily/{YYYY-MM-DD_HHMMSS}/human_analysis.md  ← workspace/outputs/human_analysis.md をコピー
+   reports/daily/{YYYY-MM-DD_HHMMSS}/critic_analysis.md ← workspace/outputs/critic_analysis.md をコピー
+   ```
+3. `reports/index.json` を更新（**新エントリを先頭に追加**）:
+   - ファイルが存在しない場合は `[]` から作成する
+   - 既存配列を読み込み、以下のオブジェクトを先頭に `unshift` して保存：
+     ```json
+     {
+       "date": "YYYY-MM-DD",
+       "time": "HH:MM:SS",
+       "type": "daily",
+       "topics": ["トピックA", "トピックB", "トピックC"],
+       "path": "reports/daily/YYYY-MM-DD_HHMMSS/report.md"
+     }
+     ```
+3. `workspace/status.json` を `phase: done` に更新
+4. コミット:
    ```bash
    git add reports/ workspace/status.json
    git commit -m "[Leader] レポート完成 {RUN_ID}"
@@ -119,6 +150,17 @@ Critic: {キーポイント1行}"
 
 ### 2. 統合・保存・PR
 1. `weekly_intermediate.md` を全文読み込んで週報を作成
+   （CLAUDE.md のスタイルガイドを適用：絵文字・太字・mermaid・エグゼクティブサマリー）
 2. `reports/weekly/{YYYY-MM-DD_HHMMSS}/report.md` に保存
-3. 1回のcommitでpush
-4. `gh pr create --base main --title "📊 週報 {YYYY-MM-DD} {HH:MM}" ...`
+3. `reports/index.json` を更新（先頭に追加）:
+   ```json
+   {
+     "date": "YYYY-MM-DD",
+     "time": "HH:MM:SS",
+     "type": "weekly",
+     "topics": [],
+     "path": "reports/weekly/YYYY-MM-DD_HHMMSS/report.md"
+   }
+   ```
+4. 1回のcommitでpush
+5. `gh pr create --base main --title "📊 週報 {YYYY-MM-DD} {HH:MM}" ...`

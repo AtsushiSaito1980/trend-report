@@ -50,6 +50,7 @@ trend-report/
 │   ├── status.json
 │   └── weekly_status.json
 ├── reports/
+│   ├── index.json               ← 図書目録（全レポートの索引）
 │   ├── daily/YYYY-MM-DD_HHMMSS/
 │   └── weekly/YYYY-MM-DD_HHMMSS/
 └── feedback/
@@ -124,6 +125,53 @@ trend-report/
 2. 直近7日の日報を1日ずつ読み、`workspace/outputs/weekly_intermediate.md` に3行要約を追記
 3. 全日分揃ったら週報に統合 → `reports/weekly/YYYY-MM-DD_HHMMSS/report.md`
 4. 1回のcommitでpush → PR作成
+
+## 図書目録（reports/index.json）
+レポート生成の最後に必ず `reports/index.json` を更新する。
+- 最新エントリを**先頭に追加**（Unshift）する配列形式
+- 日報・週報の両方を追記対象とする
+
+```json
+[
+  {
+    "date": "YYYY-MM-DD",
+    "time": "HH:MM:SS",
+    "type": "daily",
+    "topics": ["トピックA", "トピックB", "トピックC"],
+    "path": "reports/daily/YYYY-MM-DD_HHMMSS/report.md"
+  }
+]
+```
+
+## レポートスタイルガイド
+すべてのレポート（日報・週報・分析ファイル）に適用する。
+
+### 強調
+- 重要な結論・数字は `**太字**` で強調する
+- 特に重要な一文は `<mark>蛍光ペン効果</mark>` でマークする
+
+### 絵文字の配置
+| 用途 | 絵文字 |
+|---|---|
+| セクション見出し | 🚀 新技術  📊 データ  💡 洞察  ⚠️ リスク  🌍 社会影響 |
+| 状態・評価 | ✅ ポジティブ  ❌ ネガティブ  🔍 要注目  💰 ビジネス機会 |
+| 週報・サマリー | 📈 成長  📉 下落  🎯 重点  🗓️ 週次まとめ |
+
+### Mermaidによる図解
+複雑な関係性・フロー・比較は `mermaid` コードブロックで図解する：
+````markdown
+```mermaid
+graph TD
+  A[トピックA] --> B[影響1]
+  A --> C[影響2]
+```
+````
+
+### エグゼクティブ・サマリー形式
+レポートは「結論から書く」構造を徹底する：
+1. **📋 エグゼクティブ・サマリー**（全体を3〜5行で）
+2. **本文**（各視点の詳細）
+3. **💡 総合所感**（アクション提言）
 
 ## フィードバック反映
 実行開始時に必ず `feedback/issues.md` を読み、内容を指示に反映する。
