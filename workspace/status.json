@@ -1,11 +1,12 @@
 {
   "date": "2026-04-26",
-  "run_id": "20260426-034215",
-  "branch": "report-20260426-034215",
-  "phase": "start",
+  "run_id": "20260426-083954",
+  "branch": "claude/magical-mendel-sFyRO",
+  "selected_topics": ["生成AI・LLM最新動向", "ヘルスケアテック", "規制・政策動向"],
+  "phase": "done",
+  "scout_done": true,
   "tech_done": true,
   "human_done": true,
   "critic_done": true,
-  "integration_done": false,
-  "test_passed": false
+  "test_passed": true
 }
