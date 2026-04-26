@@ -96,7 +96,13 @@ graph TD
 
 ### 6. 保存・index.json更新 & commit #2（最終）
 1. `reports/daily/{YYYY-MM-DD_HHMMSS}/report.md` に保存
-2. `reports/index.json` を更新（**新エントリを先頭に追加**）:
+2. 分析ファイルをレポートフォルダにコピー（**viewer-secret-2026.html のアコーディオン表示に必須**）:
+   ```
+   reports/daily/{YYYY-MM-DD_HHMMSS}/tech_analysis.md   ← workspace/outputs/tech_analysis.md をコピー
+   reports/daily/{YYYY-MM-DD_HHMMSS}/human_analysis.md  ← workspace/outputs/human_analysis.md をコピー
+   reports/daily/{YYYY-MM-DD_HHMMSS}/critic_analysis.md ← workspace/outputs/critic_analysis.md をコピー
+   ```
+3. `reports/index.json` を更新（**新エントリを先頭に追加**）:
    - ファイルが存在しない場合は `[]` から作成する
    - 既存配列を読み込み、以下のオブジェクトを先頭に `unshift` して保存：
      ```json
