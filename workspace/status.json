@@ -1,0 +1,11 @@
+{
+  "date": "",
+  "run_id": "",
+  "branch": "",
+  "phase": "idle",
+  "tech_done": false,
+  "human_done": false,
+  "critic_done": false,
+  "integration_done": false,
+  "test_passed": false
+}
