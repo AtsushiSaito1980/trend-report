@@ -1,122 +1,124 @@
-# リーダー（オーケストレーター）
+# リーダー（スカウト＆ディレクター）
 
 ## 役割
-ブラックボード方式でエージェント全体を指揮し、レポートを統合する。
-システムが複雑になりすぎないよう管理する。
+- topics.json からトピックを選び、**自分でWebスカウトを実施する唯一のエージェント**
+- リサーチャーに分析を指示し、結果を統合してレポートを作る
+- Gitコミットは2回のみ（#1リサーチ完了、#2レポート完成）
 
 ---
 
-## 日報の実行手順
+## 日報実行手順
 
-### 0. 事前準備
-1. `feedback/issues.md` を読み、フィードバック内容をメモする
-2. 現在の日時を取得し `RUN_ID=YYYYMMDD-HHMMSS` を決定
-3. ブランチ `report-{RUN_ID}` を作成してチェックアウト
-4. `workspace/status.json` を以下で初期化：
-   ```json
-   {
-     "date": "YYYY-MM-DD",
-     "run_id": "{RUN_ID}",
-     "branch": "report-{RUN_ID}",
-     "phase": "start",
-     "tech_done": false,
-     "human_done": false,
-     "critic_done": false,
-     "integration_done": false,
-     "test_passed": false
-   }
+### 0. 準備
+1. `feedback/issues.md` を読む
+2. 現在日時で `RUN_ID=YYYYMMDD-HHMMSS` を決定
+3. ブランチ作成: `git checkout -b report-{RUN_ID}`
+4. `workspace/status.json` を初期化（phase: scouting）
+
+### 1. スカウト（WebSearch を自分で実行）
+1. `topics.json` を読み込む
+2. リストからランダムに **3トピック** を選ぶ（毎回異なる組み合わせにすること）
+3. 各トピックで WebSearch: 「{トピック名} 最新情報 今月」
+   - **取得するのは上位3件のみ**（それ以上は読まない）
+4. 結果を `workspace/outputs/scout_report.md` に要約して書き出す
+   ```markdown
+   # スカウト報告
+   実行日時: YYYY-MM-DD HH:MM
+   選択トピック: [A, B, C]
+
+   ## {トピックA}
+   1. {タイトル} — {1行要約}（URL）
+   2. ...
+   3. ...
+
+   ## {トピックB}
+   ...
    ```
-5. コミット: `[Leader] 日報ラン開始 {RUN_ID}`、プッシュ
+5. `workspace/status.json` の `scout_done` を `true` に更新
 
-### 1. 並列リサーチ（3エージェントを同時起動）
-- `agents/researcher_tech.md` の指示でリサーチ → `workspace/outputs/tech_summary.md` に書かせる
-- `agents/researcher_human.md` の指示でリサーチ → `workspace/outputs/human_summary.md` に書かせる
-- `agents/researcher_critic.md` の指示でリサーチ → `workspace/outputs/critic_summary.md` に書かせる
-- 各エージェントは完了時に自分でコミット（`[Tech] リサーチ完了` 等）
+### 2. 分析指示（3エージェントを並列起動）
+以下を同時に起動し、scout_report.md の分析を依頼する：
+- `agents/researcher_tech.md` → `workspace/outputs/tech_analysis.md`
+- `agents/researcher_human.md` → `workspace/outputs/human_analysis.md`
+- `agents/researcher_critic.md` → `workspace/outputs/critic_analysis.md`
 
-### 2. 統合
-1. `workspace/outputs/tech_summary.md` を読み込む
-2. `workspace/outputs/human_summary.md` を読み込む
-3. `workspace/outputs/critic_summary.md` を読み込む
-4. 3つの要約を統合した日報ドラフトを作成（フォーマットは下記参照）
-5. `workspace/status.json` の `integration_done` を `true` に更新
+各エージェントの完了合図: `[Role] Done.`（これ以外の報告は不要）
 
-### 3. 品質チェック
-- `agents/tester.md` の指示で日報ドラフトを検品させる
-- NG の場合: 指摘箇所を修正して再チェック
-- OK の場合: 次ステップへ
+### 3. commit #1（リサーチ完了）
+```bash
+git add workspace/outputs/
+git commit -m "[Scout] リサーチ完了 {RUN_ID}"
+git push -u origin report-{RUN_ID}
+```
 
-### 4. 保存・コミット
-1. `reports/daily/{YYYY-MM-DD_HHMMSS}/report.md` に保存
-2. `workspace/status.json` の `phase` を `done`、`test_passed` を `true` に更新
-3. コミット: `[Leader] 日報完成 {YYYY-MM-DD_HHMMSS}`
-4. プッシュ
+### 4. 統合
+3つの分析ファイルを読み込み、下記フォーマットで日報ドラフトを作成する。
 
-### 5. PR作成
-- ベースブランチ: `main`
-- タイトル: `📊 日報 {YYYY-MM-DD} {HH:MM}`
-- 本文: レポートの概要（カバーしたトピック一覧・各視点のキーポイント3点ずつ）
-
----
-
-## 週報の実行手順
-
-### 0. 事前準備
-1. 現在の日時を取得し `RUN_ID=YYYYMMDD-HHMMSS` を決定
-2. ブランチ `report-weekly-{RUN_ID}` を作成してチェックアウト
-3. `workspace/weekly_status.json` を初期化：
-   ```json
-   {
-     "week_start": "YYYY-MM-DD",
-     "run_id": "{RUN_ID}",
-     "branch": "report-weekly-{RUN_ID}",
-     "days_processed": [],
-     "integration_done": false,
-     "test_passed": false
-   }
-   ```
-4. `workspace/outputs/weekly_intermediate.md` を空ファイルで作成
-
-### 1. 7日分の日報を逐次処理
-直近7日分の `reports/daily/` フォルダを日付が新しい順に処理する：
-1. 該当日の最新 `report.md` を読む
-2. その日の3行要約を `workspace/outputs/weekly_intermediate.md` に追記
-3. `workspace/weekly_status.json` の `days_processed` にその日付を追加
-4. コミット: `[Leader] 週報中間要約追記: {YYYY-MM-DD}`
-
-### 2. 週報統合・保存
-1. `workspace/outputs/weekly_intermediate.md` を全文読み込む
-2. 週報（まとめ・新規事業の気づき・アプリ改善案・トピック見直し提案）を作成
-3. `reports/weekly/{YYYY-MM-DD_HHMMSS}/report.md` に保存
-4. コミット: `[Leader] 週報完成 {YYYY-MM-DD_HHMMSS}`
-5. プッシュ
-
-### 3. PR作成
-- ベースブランチ: `main`
-- タイトル: `📊 週報 {YYYY-MM-DD} {HH:MM}`
-- 本文: 週間サマリー（主要トピック動向・今週の重大発見・来週の注目点）
-
----
-
-## 日報フォーマット
 ```markdown
 # トレンド日報 YYYY-MM-DD
 
-## 📌 今日のサマリー
-（全体を1〜2文で）
+## 本日の選択トピック
+- {A}, {B}, {C}
 
-## 🔬 Tech視点（テック・理系）
-### {トピック名}
-- ...
+## 🔬 Tech視点
+### {トピックA}
+...
 
-## 🌍 Human視点（社会・ビジネス）
-### {トピック名}
-- ...
+## 🌍 Human視点
+### {トピックA}
+...
 
-## ⚠️ Critic視点（リスク・懸念）
-### {トピック名}
-- ...
+## ⚠️ Critic視点
+### {トピックA}
+...
 
 ## 💡 総合所感
-（リーダーによる統合コメント）
+（リーダーによる統合コメント、3〜5行）
 ```
+
+### 5. 品質チェック
+`agents/tester.md` に日報ドラフトを渡す。
+- `[Tester] OK.` → 次へ
+- `[Tester] NG: {理由}` → 指摘箇所を修正して再チェック
+
+### 6. 保存 & commit #2（最終）
+1. `reports/daily/{YYYY-MM-DD_HHMMSS}/report.md` に保存
+2. `workspace/status.json` を `phase: done` に更新
+3. コミット:
+   ```bash
+   git add reports/ workspace/status.json
+   git commit -m "[Leader] レポート完成 {RUN_ID}"
+   git push origin report-{RUN_ID}
+   ```
+
+### 7. PR作成
+```bash
+gh pr create \
+  --base main \
+  --head report-{RUN_ID} \
+  --title "📊 日報 {YYYY-MM-DD} {HH:MM}" \
+  --body "選択トピック: {A}, {B}, {C}
+Tech: {キーポイント1行}
+Human: {キーポイント1行}
+Critic: {キーポイント1行}"
+```
+
+---
+
+## 週報実行手順
+
+### 0. 準備
+1. `git checkout -b report-weekly-{RUN_ID}`
+2. `workspace/weekly_status.json` を初期化
+3. `workspace/outputs/weekly_intermediate.md` を空で作成
+
+### 1. 7日分を逐次処理
+直近7日の `reports/daily/` を日付の新しい順に処理：
+1. 最新の `report.md` を読む
+2. 3行要約を `workspace/outputs/weekly_intermediate.md` に追記
+
+### 2. 統合・保存・PR
+1. `weekly_intermediate.md` を全文読み込んで週報を作成
+2. `reports/weekly/{YYYY-MM-DD_HHMMSS}/report.md` に保存
+3. 1回のcommitでpush
+4. `gh pr create --base main --title "📊 週報 {YYYY-MM-DD} {HH:MM}" ...`
