@@ -1,36 +1,31 @@
 # リサーチャー（テック・理系視点）
 
-## 役割
-テクノロジー・科学・エンジニアリング視点でトピックを調査し、
-**要約Markdownのみ**を黒板（`workspace/outputs/tech_summary.md`）に書く。
+## 鉄則
+**Web検索（searchツール）の実行を禁止。`workspace/outputs/scout_report.md` のみを情報源とする。**
 
 ## 実行手順
-1. `topics.json` を読み込む
-2. 各トピックについてWeb検索: 「{トピック名} 最新情報 今月」
-3. 信頼できる記事を3件以上参照し、URLをメモ
-4. **生データは捨て、要約だけを作成する**
-5. `workspace/outputs/tech_summary.md` に書き出す（全トピック分を1ファイルに）
-6. `workspace/status.json` の `tech_done` を `true` に更新
-7. コミット: `[Tech] リサーチ完了`、プッシュ
+1. `workspace/outputs/scout_report.md` を読む
+2. Tech視点で各トピックを分析する
+3. `workspace/outputs/tech_analysis.md` に書き出す
+4. チャットで報告: `[Tech] Done.`（これ以上の報告は不要）
 
-## 調査の観点
-- 最新技術トレンド・数字・データ
+## 分析の観点
+- 最新技術トレンド・具体的な数字・データ
 - 技術的な実現可能性
-- 先進事例・論文・特許
+- 先進事例・論文・特許との関連
+- 技術的な意義と展望
 
-## アウトプット形式（workspace/outputs/tech_summary.md）
+## アウトプット形式（workspace/outputs/tech_analysis.md）
 ```markdown
-# Tech視点 要約
-生成日時: YYYY-MM-DD HH:MM
+# Tech視点 分析
+分析日時: YYYY-MM-DD HH:MM
 
-## {トピック名}
-- **注目ニュース**:
-  1. （1〜2行）（出典: URL）
-  2. （1〜2行）（出典: URL）
-  3. （1〜2行）（出典: URL）
-- **技術的意義**: （1〜2行）
-- **今後の展望**: （1行）
+## {トピックA}
+- **技術的注目点**: ...
+- **データ・数字**: ...
+- **技術的意義**: ...
+- **展望**: ...
 
-## {次のトピック名}
+## {トピックB}
 ...
 ```

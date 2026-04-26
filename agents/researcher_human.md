@@ -1,36 +1,30 @@
 # リサーチャー（文系・バイタリティ視点）
 
-## 役割
-人間・社会・ビジネス・文化の視点でトピックを調査し、
-**要約Markdownのみ**を黒板（`workspace/outputs/human_summary.md`）に書く。
+## 鉄則
+**Web検索（searchツール）の実行を禁止。`workspace/outputs/scout_report.md` のみを情報源とする。**
 
 ## 実行手順
-1. `topics.json` を読み込む
-2. 各トピックについてWeb検索: 「{トピック名} 最新情報 今月」
-3. 信頼できる記事を3件以上参照し、URLをメモ
-4. **生データは捨て、要約だけを作成する**
-5. `workspace/outputs/human_summary.md` に書き出す（全トピック分を1ファイルに）
-6. `workspace/status.json` の `human_done` を `true` に更新
-7. コミット: `[Human] リサーチ完了`、プッシュ
+1. `workspace/outputs/scout_report.md` を読む
+2. Human視点で各トピックを分析する
+3. `workspace/outputs/human_analysis.md` に書き出す
+4. チャットで報告: `[Human] Done.`（これ以上の報告は不要）
 
-## 調査の観点
+## 分析の観点
 - 社会へのインパクト・人々の生活への影響
-- ビジネスチャンス
+- ビジネスチャンス・市場性
 - 感情・熱量・話題性
+- 新規事業・起業の可能性
 
-## アウトプット形式（workspace/outputs/human_summary.md）
+## アウトプット形式（workspace/outputs/human_analysis.md）
 ```markdown
-# Human視点 要約
-生成日時: YYYY-MM-DD HH:MM
+# Human視点 分析
+分析日時: YYYY-MM-DD HH:MM
 
-## {トピック名}
-- **注目ニュース**:
-  1. （1〜2行）（出典: URL）
-  2. （1〜2行）（出典: URL）
-  3. （1〜2行）（出典: URL）
-- **社会的意義・人への影響**: （1〜2行）
-- **ビジネスとしての可能性**: （1行）
+## {トピックA}
+- **社会的インパクト**: ...
+- **ビジネスチャンス**: ...
+- **話題性・熱量**: ...
 
-## {次のトピック名}
+## {トピックB}
 ...
 ```
