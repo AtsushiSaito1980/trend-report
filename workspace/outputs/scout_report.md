@@ -1,18 +1,18 @@
 # スカウト報告
-実行日時: 2026-04-26 21:35
-選択トピック: [生成AI・LLM最新動向, ヘルスケアテック, 海外テック企業動向]
+実行日時: 2026-04-28 21:35
+選択トピック: [日本のスタートアップ・資金調達, 規制・政策動向, ヘルスケアテック]
 
-## 生成AI・LLM最新動向
-1. [2026年4月版] 生成AIによる情報システムへのインパクト (Speaker Deck) — MCPダウンロード数が1年間で10万→800万（80倍）に急増。AIエージェントは「構築フェーズ」から「信頼フェーズ」へ移行。Gartner予測「2026年までに世界企業の80%以上がGenAI APIを本格展開」（https://speakerdeck.com/taka_aki/2026nian-4yue-ban-sheng-cheng-ainiyoruqing-bao-sisutemuhenoinpakuto）
-2. 令和8年4月 生成AIに関する実態調査報告書 ver.2.0 (公正取引委員会) — AnthropicのARRが300億ドルを突破しOpenAIを上回り首位浮上。世界AI市場2.5兆ドル規模。LLM市場の寡占・競争阻害リスクを指摘（https://www.jftc.go.jp/houdou/pressrelease/2026/apr/260416_generativeai02.pdf）
-3. オープンソースLLM入門｜2026年無料AIが有料に追いついた理由 (labmemo.com) — オープンソースLLMがコーディング分野で商用モデルと同等性能を達成。MetaのMuse SparkはCapEx $115B〜$135Bで前年比約2倍を投資（https://labmemo.com/opensource-llm-beginner-2026/）
+## 日本のスタートアップ・資金調達
+1. [4月20〜24日 スタートアップ資金調達まとめ読み](https://www.nikkei.com/article/DGXZQOUC23AJ70T20C26A4000000/) — ブレイブグループ（VTuber）が80億円、ミツモアが約30億円（AI機能強化）、ECOMMITがメルカリ等から約15億円を調達。
+2. [4月13〜17日 スタートアップ資金調達まとめ読み](https://www.nikkei.com/article/DGXZQOUC175X00X10C26A4000000/) — 建設AIのONESTRUCTIONが9.1億円、図面管理のBALLASが24億円を調達。建設テックへの資金流入が顕著。
+3. [スタートアップ資金調達サマリー【2026/3/30～4/3】](https://note.com/zaimo_ai/n/n812a99850772) — AI・建設・リユースが主要調達セクター。VCやメガ企業からの第三者割当増資が主流。
+
+## 規制・政策動向
+1. [AI利活用における民事責任の解釈適用に関する手引き（経済産業省、令和8年4月）](https://www.meti.go.jp/press/2026/04/20260409001/20260409001-1.pdf) — 経産省がAIの民事責任解釈ガイドラインを発表。企業のAI活用における法的リスクの明確化を図る。
+2. [米議会中国特別委：中国AI半導体は米国依存、一層の規制強化が必要と提言（ジェトロ）](https://www.jetro.go.jp/biznews/2026/04/4786bb32e4abefff.html) — 4月16日、米下院特別委員会が対中AI半導体輸出規制の強化を提言。技術覇権争いが激化。
+3. [AIのグローバル規制・政策動向：2025年の動きと2026年への示唆（荒木法律事務所）](https://arakiplaw.com/insight/2658/) — EU AI法が2026年8月に追加適用予定（ハイリスクAI・限定リスクAI透明性義務）。日本はAI推進法（2025年9月全面施行）で促進路線を継続。
 
 ## ヘルスケアテック
-1. 医療機器関連ニュース（2026年4月11日〜4月17日）(MedDevice薬事ポータル) — PMDAが2026年4月15日に生成AI業務利用を正式開始（規制当局自身がAIを採用する世界的先進事例）。Strykerが血管内リトトリプシー技術のAmplitude Vascular Systemsを買収（4/13）（https://blog.rso.or.jp/医療機器関連ニュース）
-2. HEALTHCARE IT 2026（第11回）(Care Show Japan) — エルピクセル・シーメンス・フィリップスが新型AIシステムを展示、AIマンモグラフィと在宅ケアAIが実装フェーズへ移行。American Industrial Partnersが医療機器企業Avanos Medicalを約$1.272B（約1,900億円）で非公開化（https://www.care-show.com/healthit/）
-3. AIが予測するヘルステック業界｜2030年市場規模推移 (xenobrain.jp) — ヘルステック市場は2030年に向けて急拡大予測。Stereotaxisがフランス血管内ロボット企業Robocathを最大$45M（約67億円）で買収（https://service.xenobrain.jp/forecastresults/market-size/health-tech）
-
-## 海外テック企業動向
-1. 注目の海外スタートアップ資金調達4選（2026.04.23）(SecondWave/note) — AI企業OmniがSeries Cで$120M調達・バリュエーション$1.5B到達（1年で2.3倍）。共通テーマは「AIによる人間能力の拡張」。Appleはティム・クックCEO退任・新CEO就任を発表（4/20）（https://note.com/startup_now0708/n/n52066294b9ce）
-2. 2026年に注目すべきサイバーセキュリティ技術動向 (伊藤忠テクノソリューションズ) — AIエージェント時代に向けSecurity for AI・IDセキュリティ・DSPM・CNAPP・SecOpsが注目技術に。OpenAIがサイバーセキュリティ特化モデル「GPT-5.4-Cyber」を提供開始（https://www.ctc-g.co.jp/keys/blog/detail/2026-cybersecurity-trends）
-3. 調査レポート：米国イノベーション・スタートアップ (ジェトロ) — 上場企業の海外M&Aが2026年Q1で71件・前年比16%増・過去最多。越境EC世界市場が約$2,028億規模に到達。量子コンピューティングが将来100兆円超産業と試算（https://www.jetro.go.jp/reportstop/reports/n_america/us/innovation/）
+1. [医療機器関連ニュース（2026年4月18日〜4月24日）（MedDevice薬事ポータル）](https://blog.rso.or.jp/%E5%8C%BB%E7%99%82%E6%A9%9F%E5%99%A8%E9%96%A2%E9%80%A3%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9%EF%BC%882026%E5%B9%B44%E6%9C%8818%E6%97%A5%E3%80%9C2026%E5%B9%B44%E6%9C%8824%E6%97%A5%EF%BC%89/) — フィリップス・ジャパンが世界初AI搭載マルチエナジースペクトラルCT「Verida」を国内発売（4/22）。コヴィディエンが外科デジタル教育プラットフォーム「Touch Surgery ecosystem」を日本展開（4/23）。
+2. [ヘルスケアテクノロジー市場規模・分析（GII）](https://www.gii.co.jp/report/tbrc1975721-healthcare-technology-global-market-report.html) — 市場規模は2025年の5,879億ドルから2026年に7,072億ドルへ（CAGR 20.3%）と急拡大中。
+3. [AIが予測するヘルステック業界｜2030年市場規模推移（xenobrain.jp）](https://service.xenobrain.jp/forecastresults/market-size/health-tech) — LLMを活用した診断支援・業務効率化が主要成長ドライバー。2030年に向けAI×医療の融合が加速。
