@@ -1,12 +1,12 @@
 {
-  "date": "2026-04-26",
-  "run_id": "20260426-213531",
-  "branch": "claude/magical-mendel-QPmJ7",
-  "selected_topics": ["生成AI・LLM最新動向", "ヘルスケアテック", "海外テック企業動向"],
-  "phase": "done",
+  "date": "2026-05-03",
+  "run_id": "20260503-213548",
+  "branch": "report-20260503-213548",
+  "selected_topics": ["日本のスタートアップ・資金調達", "規制・政策動向", "生成AI・LLM最新動向"],
+  "phase": "analyzing",
   "scout_done": true,
-  "tech_done": true,
-  "human_done": true,
-  "critic_done": true,
-  "test_passed": true
+  "tech_done": false,
+  "human_done": false,
+  "critic_done": false,
+  "test_passed": false
 }
