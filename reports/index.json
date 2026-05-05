@@ -1,5 +1,12 @@
 [
   {
+    "date": "2026-05-05",
+    "time": "21:38:25",
+    "type": "daily",
+    "topics": ["生成AI・LLM最新動向", "規制・政策動向", "ヘルスケアテック"],
+    "path": "reports/daily/2026-05-05_213825/report.md"
+  },
+  {
     "date": "2026-04-26",
     "time": "21:35:31",
     "type": "daily",
