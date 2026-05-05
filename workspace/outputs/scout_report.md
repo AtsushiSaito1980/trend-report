@@ -1,18 +1,33 @@
 # スカウト報告
-実行日時: 2026-04-26 21:35
-選択トピック: [生成AI・LLM最新動向, ヘルスケアテック, 海外テック企業動向]
+実行日時: 2026-05-05 21:38
+選択トピック: [生成AI・LLM最新動向, 規制・政策動向, ヘルスケアテック]
 
 ## 生成AI・LLM最新動向
-1. [2026年4月版] 生成AIによる情報システムへのインパクト (Speaker Deck) — MCPダウンロード数が1年間で10万→800万（80倍）に急増。AIエージェントは「構築フェーズ」から「信頼フェーズ」へ移行。Gartner予測「2026年までに世界企業の80%以上がGenAI APIを本格展開」（https://speakerdeck.com/taka_aki/2026nian-4yue-ban-sheng-cheng-ainiyoruqing-bao-sisutemuhenoinpakuto）
-2. 令和8年4月 生成AIに関する実態調査報告書 ver.2.0 (公正取引委員会) — AnthropicのARRが300億ドルを突破しOpenAIを上回り首位浮上。世界AI市場2.5兆ドル規模。LLM市場の寡占・競争阻害リスクを指摘（https://www.jftc.go.jp/houdou/pressrelease/2026/apr/260416_generativeai02.pdf）
-3. オープンソースLLM入門｜2026年無料AIが有料に追いついた理由 (labmemo.com) — オープンソースLLMがコーディング分野で商用モデルと同等性能を達成。MetaのMuse SparkはCapEx $115B〜$135Bで前年比約2倍を投資（https://labmemo.com/opensource-llm-beginner-2026/）
+1. [MIT Tech Review: どうなる2026年のAI、本誌が予測する5大トレンド](https://www.technologyreview.jp/s/375307/whats-next-for-ai-in-2026/) — エージェントAIの本番化・信頼性検証、軽量モデルの二層構造化など5大トレンドを予測
+2. [2026年に押さえておきたいAIトレンド38選 - izanami](https://izanami.dev/post/3f1f4ef3-2246-4b7a-b911-26b1b8980899) — 推論用途が全コンピュートの2/3を占め、オンプレ軽量モデル（SLM）とクラウドの二層化が標準化
+3. [【2026年最新】ローカル生成AIとは？メリットやおすすめLLM | 株式会社AX](https://a-x.inc/blog/local-ai/) — Qwen3.6（2026年4月公開）など中国製OSSモデルが急台頭、ローカルLLMが社内インフラとして定着
+
+**補足情報:**
+- エージェントAI: 「2025年は構築する年、2026年は信頼する年」— ROI実証が求められる段階へ
+- RAGは社内向けAIの基本アーキテクチャとして定着。ワールドモデルがLLMの次世代技術として注目
+- 規制強化: 2026年は「ガイドライン」から「法的拘束力のある義務」へ転換の年
+
+## 規制・政策動向
+1. [2026年5月1日 AI規制・政策最新動向：政策策定の信頼性・企業ガバナンス・開発原則の転換](https://www.a-aich.com/posts/policy-ai-governance-reliability-shift-may-2026) — AIが政策策定プロセスへ浸透する一方、信頼性担保・ファクトチェックが喫緊の国際課題に
+2. [人工知能（AI）のグローバル規制・政策動向：2025年の動きと2026年への示唆 | 荒木法律事務所](https://arakiplaw.com/insight/2658/) — 日本AI法（2025年9月全面施行）・EU AI法行動規範（2026年5〜6月最終版予定）の最新動向
+3. [2025年下半期世界各国のAI規制動向 | KPMG](https://kpmg.com/jp/ja/insights/2026/02/2025secondhalf-world-ai-regulation.html) — 日本は人工知能基本計画を閣議決定、防衛・半導体・量子を重点6分野として支援強化
+
+**補足情報:**
+- 企業内AIガバナンス: エージェントが業務プロセスに常駐する段階となり「誰がどんなエージェントを使っているか見えない」問題が急増
+- EU: AI生成コンテンツの透明性行動規範が2026年5〜6月に最終版公表予定
+- 日本政府: AI・量子・半導体・通信等6分野を重点支援、防衛分野のAI活用を推進
 
 ## ヘルスケアテック
-1. 医療機器関連ニュース（2026年4月11日〜4月17日）(MedDevice薬事ポータル) — PMDAが2026年4月15日に生成AI業務利用を正式開始（規制当局自身がAIを採用する世界的先進事例）。Strykerが血管内リトトリプシー技術のAmplitude Vascular Systemsを買収（4/13）（https://blog.rso.or.jp/医療機器関連ニュース）
-2. HEALTHCARE IT 2026（第11回）(Care Show Japan) — エルピクセル・シーメンス・フィリップスが新型AIシステムを展示、AIマンモグラフィと在宅ケアAIが実装フェーズへ移行。American Industrial Partnersが医療機器企業Avanos Medicalを約$1.272B（約1,900億円）で非公開化（https://www.care-show.com/healthit/）
-3. AIが予測するヘルステック業界｜2030年市場規模推移 (xenobrain.jp) — ヘルステック市場は2030年に向けて急拡大予測。Stereotaxisがフランス血管内ロボット企業Robocathを最大$45M（約67億円）で買収（https://service.xenobrain.jp/forecastresults/market-size/health-tech）
+1. [2026年、医療AIは実用フェーズへ｜市場規模と主要トレンドを整理 | 株式会社システムサポート](https://smart-generative-chat.com/2026/01/30/healthcare-ai-implementation-2026/) — 世界医療AI市場は2026年約560億ドル（前年比+42%）、問診・手術支援・SaMD実用化が本格化
+2. [医療業界でのAI導入事例｜ヘルスケア・看護・病院での活用【2026年最新版】](https://ai-market.jp/industry/medical_ai/) — 日本の医療機関AI導入率28%（画像診断13.3%・ゲノム9.7%）、地域診療所の94.3%は未導入と格差深刻
+3. [ヘルスケア業界におけるAI活用：2026年の3つの予測 | Snowflake](https://www.snowflake.com/en/blog/ai-in-healthcare/) — 生成AI・マルチモーダルAI・プログラム医療機器（SaMD）の三本柱が2026年のヘルスケアAIを牽引
 
-## 海外テック企業動向
-1. 注目の海外スタートアップ資金調達4選（2026.04.23）(SecondWave/note) — AI企業OmniがSeries Cで$120M調達・バリュエーション$1.5B到達（1年で2.3倍）。共通テーマは「AIによる人間能力の拡張」。Appleはティム・クックCEO退任・新CEO就任を発表（4/20）（https://note.com/startup_now0708/n/n52066294b9ce）
-2. 2026年に注目すべきサイバーセキュリティ技術動向 (伊藤忠テクノソリューションズ) — AIエージェント時代に向けSecurity for AI・IDセキュリティ・DSPM・CNAPP・SecOpsが注目技術に。OpenAIがサイバーセキュリティ特化モデル「GPT-5.4-Cyber」を提供開始（https://www.ctc-g.co.jp/keys/blog/detail/2026-cybersecurity-trends）
-3. 調査レポート：米国イノベーション・スタートアップ (ジェトロ) — 上場企業の海外M&Aが2026年Q1で71件・前年比16%増・過去最多。越境EC世界市場が約$2,028億規模に到達。量子コンピューティングが将来100兆円超産業と試算（https://www.jetro.go.jp/reportstop/reports/n_america/us/innovation/）
+**補足情報:**
+- PMDA（医薬品医療機器総合機構）が審査体制を2チームに拡充、承認スピード向上
+- 中小規模医療機関は「費用対効果が見えない」として導入停滞 — デジタルデバイドが拡大中
+- 政府「統合イノベーション戦略2025」でAI×医療・健康を重点戦略分野に位置づけ済み
